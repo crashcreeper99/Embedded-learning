@@ -37,32 +37,6 @@ Topics Covered
 * Hardware Debugging
 * Git & GitHub Workflow
 
-⸻
-
-Repository Structure
-
-embedded-learning/
-│
-├── notes/
-│   ├── electronics/
-│   ├── programming/
-│   ├── datasheets/
-│   └── study-notes/
-│
-├── projects/
-│   ├── 01-blink/
-│   ├── 02-button-input/
-│   ├── 03-smart-sensor/
-│   ├── 04-servo-control/
-│   └── ...
-│
-├── diagrams/
-│
-├── images/
-│
-└── README.md
-
-⸻
 
 Current Learning Roadmap
 
