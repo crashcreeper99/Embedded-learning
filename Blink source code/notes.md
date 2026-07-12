@@ -31,4 +31,3 @@ Personal Reflection
 
 Today was the day I proved to myself that I can build real hardware. This wasn't just a blinking light—it was my first successful interaction between code and the physical world. Every engineer starts somewhere, and today I took my first real step toward becoming an embedded systems engineer. If I continue building one project at a time, I'll have a strong portfolio and the practical experience needed to compete for internships and eventually build the ambitious projects I have planned.
 
-Ad
