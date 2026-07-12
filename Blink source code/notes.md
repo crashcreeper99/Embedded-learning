@@ -1,4 +1,4 @@
-Daily Reflection – July 11, 2026
+project Reflection – July 11, 2026
 
 Today was an important milestone in my embedded systems journey. After spending time setting up my development environment and troubleshooting connection issues, I successfully completed my first ESP32 hardware project: blinking an external LED on a breadboard.
 
