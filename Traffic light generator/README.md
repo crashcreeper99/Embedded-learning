@@ -37,11 +37,3 @@ This project simulates a real-world traffic light using an ESP32 DevKit V1. Thre
 - Build a two-way intersection
 - Implement a finite state machine
 
-## Project Reflection
-(Build your reflection here.)
-
-## Images
-(Add photos of your circuit.)
-
-## Demo
-(Add a short video or GIF of the LEDs cycling.)
