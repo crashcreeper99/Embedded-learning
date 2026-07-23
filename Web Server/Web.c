@@ -2,7 +2,7 @@
 #include <WiFi.h>
 
 // Replace with your network credentials
-const char* ssid = "lamarwifi";
+const char* ssid = "wifi name";
 const char* password = "password";
 
 
