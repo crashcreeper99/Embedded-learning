@@ -1,0 +1,9 @@
+ESP32 OLED Display – Reflection
+
+This project introduced me to using an OLED display with the ESP32 through the I2C communication protocol. I learned how to wire the display correctly, install the required graphics libraries, initialize the display, and print text to the screen. Unlike serial output, the OLED provides a visual interface that makes embedded projects much more user-friendly.
+
+One of the most valuable lessons was understanding how peripherals communicate over I2C and how software libraries simplify working with display hardware. I also gained experience troubleshooting wiring connections, library installation, and display initialization issues.
+
+Completing this project strengthened my understanding of embedded systems and prepared me for more advanced projects that combine displays with sensors, Wi-Fi, and real-time data. Going forward, I plan to use OLED displays in IoT dashboards, environmental monitoring systems, robotics projects, and smart home applications.
+
+Overall, this project improved my hardware integration, debugging, and programming skills while moving me another step closer to becoming an embedded systems engineer.
