@@ -3,9 +3,10 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-// --------------------
+// =====================================================
 // OLED
-// --------------------
+// =====================================================
+
 #define OLED_SDA 21
 #define OLED_SCL 22
 
@@ -13,171 +14,314 @@
 #define SCREEN_HEIGHT 64
 #define OLED_RESET -1
 
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire1, OLED_RESET);
+Adafruit_SSD1306 display(
+  SCREEN_WIDTH,
+  SCREEN_HEIGHT,
+  &Wire1,
+  OLED_RESET
+);
 
-// --------------------
+// =====================================================
 // DS1307
-// --------------------
+// =====================================================
+
 #define RTC_SDA 18
 #define RTC_SCL 19
 
 RTC_DS1307 rtc;
 
-// --------------------
-// Buzzer
-// --------------------
+// =====================================================
+// BUZZER
+// =====================================================
+
 #define BUZZER_PIN 25
 
-// Alarm time
-int alarmHour = 7;
-int alarmMinute = 0;
+// =====================================================
+// BUTTON
+// =====================================================
 
-bool alarmEnabled = true;
+#define BUTTON_PIN 27
+
+// =====================================================
+// ALARM
+// 4:33 PM = 16:33
+// =====================================================
+
+const int ALARM_HOUR = 16;
+const int ALARM_MINUTE = 33;
+
 bool alarmRinging = false;
+bool alarmTriggered = false;
 
-// Prevent alarm from repeatedly triggering during same minute
-int lastAlarmMinute = -1;
+// =====================================================
+// SETUP
+// =====================================================
 
 void setup() {
 
   Serial.begin(115200);
 
-  // --------------------
-  // OLED I2C
-  // --------------------
+  // ---------------------------------------------------
+  // OLED
+  // ---------------------------------------------------
+
   Wire1.begin(OLED_SDA, OLED_SCL);
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
-    Serial.println("OLED not found!");
-    while (true);
+
+    Serial.println("OLED NOT FOUND!");
+
+    while (true) {
+      delay(1000);
+    }
   }
 
-  display.clearDisplay();
-  display.setTextColor(SSD1306_WHITE);
+  // ---------------------------------------------------
+  // DS1307
+  // ---------------------------------------------------
 
-  // --------------------
-  // RTC I2C
-  // --------------------
   Wire.begin(RTC_SDA, RTC_SCL);
 
   if (!rtc.begin(&Wire)) {
-    Serial.println("DS1307 not found!");
-    
+
+    Serial.println("DS1307 NOT FOUND!");
+
     display.clearDisplay();
+    display.setTextColor(SSD1306_WHITE);
     display.setTextSize(1);
+
     display.setCursor(0, 20);
     display.println("DS1307 NOT FOUND!");
+
     display.display();
 
-    while (true);
+    while (true) {
+      delay(1000);
+    }
   }
 
-  // If RTC lost power, set it to the compile time
+  // ---------------------------------------------------
+  // ONLY SET RTC IF IT LOST POWER
+  // ---------------------------------------------------
+
   if (!rtc.isrunning()) {
-    Serial.println("RTC not running!");
+
+    Serial.println("RTC was not running.");
+    Serial.println("Setting RTC to computer time...");
+
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
   }
 
-  pinMode(BUZZER_PIN, OUTPUT);
-  digitalWrite(BUZZER_PIN, LOW);
+  // ---------------------------------------------------
+  // BUZZER
+  // ---------------------------------------------------
 
-  Serial.println("Alarm Clock Started!");
+  pinMode(BUZZER_PIN, OUTPUT);
+  noTone(BUZZER_PIN);
+
+  // ---------------------------------------------------
+  // BUTTON
+  // ---------------------------------------------------
+
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  // ---------------------------------------------------
+  // STARTUP SCREEN
+  // ---------------------------------------------------
+
+  display.clearDisplay();
+
+  display.setTextColor(SSD1306_WHITE);
+
+  display.setTextSize(2);
+
+  display.setCursor(5, 5);
+  display.println("ALARM");
+
+  display.setCursor(5, 30);
+  display.println("4:33 PM");
+
+  display.display();
+
+  delay(2000);
+
+  Serial.println("==============================");
+  Serial.println("ALARM CLOCK STARTED");
+  Serial.println("Alarm: 4:33 PM");
+  Serial.println("==============================");
 }
+
+// =====================================================
+// LOOP
+// =====================================================
 
 void loop() {
 
   DateTime now = rtc.now();
 
-  // --------------------
-  // Check alarm
-  // --------------------
-  if (alarmEnabled &&
-      now.hour() == alarmHour &&
-      now.minute() == alarmMinute &&
-      lastAlarmMinute != now.minute()) {
+  // ===================================================
+  // PRINT TIME TO SERIAL
+  // ===================================================
 
-    alarmRinging = true;
-    lastAlarmMinute = now.minute();
+  Serial.print("Time: ");
+
+  if (now.hour() < 10)
+    Serial.print("0");
+
+  Serial.print(now.hour());
+  Serial.print(":");
+
+  if (now.minute() < 10)
+    Serial.print("0");
+
+  Serial.print(now.minute());
+  Serial.print(":");
+
+  if (now.second() < 10)
+    Serial.print("0");
+
+  Serial.println(now.second());
+
+  // ===================================================
+  // RESET ALARM AFTER MIDNIGHT
+  // ===================================================
+
+  if (now.hour() == 0 && now.minute() == 0) {
+    alarmTriggered = false;
   }
 
-  // --------------------
-  // Sound alarm
-  // --------------------
+  // ===================================================
+  // CHECK ALARM
+  // ===================================================
+
+  if (!alarmTriggered &&
+      now.hour() == ALARM_HOUR &&
+      now.minute() == ALARM_MINUTE) {
+
+    alarmRinging = true;
+    alarmTriggered = true;
+
+    Serial.println("************************");
+    Serial.println("ALARM RINGING!");
+    Serial.println("************************");
+  }
+
+  // ===================================================
+  // BUTTON
+  // ===================================================
+
+  if (digitalRead(BUTTON_PIN) == LOW) {
+
+    if (alarmRinging) {
+
+      alarmRinging = false;
+
+      noTone(BUZZER_PIN);
+
+      Serial.println("ALARM STOPPED");
+
+      delay(500);
+    }
+  }
+
+  // ===================================================
+  // BUZZER
+  // ===================================================
+
   if (alarmRinging) {
 
     tone(BUZZER_PIN, 1000);
 
-    // Stop alarm after 30 seconds
-    if (now.second() >= 30) {
-      noTone(BUZZER_PIN);
-      alarmRinging = false;
-    }
-
   } else {
+
     noTone(BUZZER_PIN);
   }
 
-  // --------------------
-  // Display
-  // --------------------
+  // ===================================================
+  // OLED
+  // =====================================================
+
   display.clearDisplay();
 
-  // Time
-  display.setTextSize(2);
-  display.setCursor(10, 5);
+  display.setTextColor(SSD1306_WHITE);
 
-  if (now.hour() < 10) display.print("0");
+  // ---------------------------------------------------
+  // TIME
+  // ---------------------------------------------------
+
+  display.setTextSize(2);
+
+  display.setCursor(5, 2);
+
+  if (now.hour() < 10)
+    display.print("0");
+
   display.print(now.hour());
 
   display.print(":");
 
-  if (now.minute() < 10) display.print("0");
+  if (now.minute() < 10)
+    display.print("0");
+
   display.print(now.minute());
 
   display.print(":");
 
-  if (now.second() < 10) display.print("0");
+  if (now.second() < 10)
+    display.print("0");
+
   display.print(now.second());
 
-  // Date
+  // ---------------------------------------------------
+  // DATE
+  // ---------------------------------------------------
+
   display.setTextSize(1);
-  display.setCursor(20, 30);
 
-  if (now.month() < 10) display.print("0");
+  display.setCursor(25, 25);
+
+  if (now.month() < 10)
+    display.print("0");
+
   display.print(now.month());
+
   display.print("/");
 
-  if (now.day() < 10) display.print("0");
+  if (now.day() < 10)
+    display.print("0");
+
   display.print(now.day());
+
   display.print("/");
+
   display.print(now.year());
 
-  // Alarm
-  display.setCursor(10, 45);
-  display.print("Alarm: ");
+  // ---------------------------------------------------
+  // ALARM
+  // ---------------------------------------------------
 
-  if (alarmHour < 10) display.print("0");
-  display.print(alarmHour);
+  display.setCursor(10, 38);
 
-  display.print(":");
+  display.print("Alarm: 04:33 PM");
 
-  if (alarmMinute < 10) display.print("0");
-  display.print(alarmMinute);
+  // ---------------------------------------------------
+  // STATUS
+  // ---------------------------------------------------
 
-  display.setCursor(10, 56);
-
-  if (alarmEnabled) {
-    display.print("Alarm ON");
-  } else {
-    display.print("Alarm OFF");
-  }
+  display.setCursor(10, 52);
 
   if (alarmRinging) {
-    display.setCursor(75, 56);
-    display.print("RING!");
+
+    display.print("RING! PRESS BUTTON");
+
+  } else {
+
+    display.print("Alarm: ON");
   }
 
   display.display();
 
-  delay(250);
+  delay(500);
 }
+
+  
