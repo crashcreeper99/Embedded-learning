@@ -1,38 +1,40 @@
-const int leds[] = {16, 17, 18, 19};
+const int leds[] = {15, 5, 18, 19};
 const int buttonPin = 23;
 
-int counter = 0;
+int number = 0;
 bool lastButtonState = HIGH;
 
+void displayBinary(int value) {
+  for (int i = 0; i < 4; i++) {
+    digitalWrite(leds[i], bitRead(value, i));
+  }
+}
+
 void setup() {
+  Serial.begin(115200);
+
   for (int i = 0; i < 4; i++) {
     pinMode(leds[i], OUTPUT);
   }
 
   pinMode(buttonPin, INPUT_PULLUP);
-
-  displayBinary(counter);
+  displayBinary(number);
 }
 
 void loop() {
   bool buttonState = digitalRead(buttonPin);
 
   if (lastButtonState == HIGH && buttonState == LOW) {
-    counter++;
+    number++;
 
-    if (counter > 15) {
-      counter = 0;
+    if (number > 15) {
+      number = 0;
     }
 
-    displayBinary(counter);
+    displayBinary(number);
+    Serial.println(number);
     delay(200);
   }
 
   lastButtonState = buttonState;
-}
-
-void displayBinary(int number) {
-  for (int i = 0; i < 4; i++) {
-    digitalWrite(leds[i], (number >> i) & 1);
-  }
 }
