@@ -8,6 +8,8 @@ const int PIR_PIN = 27;
 const int CLOSED_POSITION = 20;
 const int OPEN_POSITION = 100;
 
+bool motionHandled = false;
+
 void setup() {
   Serial.begin(115200);
 
@@ -19,7 +21,7 @@ void setup() {
   doorServo.write(CLOSED_POSITION);
 
   Serial.println("PIR warming up...");
-  delay(10000);
+  delay(30000);   // give PIR time to stabilize
 
   Serial.println("Automatic Door Ready!");
 }
@@ -27,15 +29,23 @@ void setup() {
 void loop() {
   int motion = digitalRead(PIR_PIN);
 
-  if (motion == HIGH) {
-    Serial.println("Motion detected!");
+  if (motion == HIGH && !motionHandled) {
+    motionHandled = true;
 
-    // Open the door
+    Serial.println("Motion detected - opening door");
+
     doorServo.write(OPEN_POSITION);
     delay(3000);
 
-    // Close the door
     doorServo.write(CLOSED_POSITION);
-    delay(2000);
+
+    Serial.println("Door closed");
   }
+
+  // Only allow another trigger after PIR returns LOW
+  if (motion == LOW) {
+    motionHandled = false;
+  }
+
+  delay(100);
 }
