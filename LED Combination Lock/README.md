@@ -20,15 +20,15 @@ Each button uses `INPUT_PULLUP`, so one side connects to the ESP32 pin and the o
 |---|---:|
 | Button 1 | GPIO 13 |
 | Button 2 | GPIO 14 |
-| Button 3 | GPIO 27 |
+| Button 3 | GPIO 25 |
 | Button 4 | GPIO 26 |
 | Other side of all buttons | GND |
 
 ### LEDs
 | Component | ESP32 Pin |
 |---|---:|
-| Green LED anode (+) | GPIO 23 through 220Ω resistor |
-| Red LED anode (+) | GPIO 22 through 220Ω resistor |
+| Green LED anode (+) | GPIO 18 through 220Ω resistor |
+| Red LED anode (+) | GPIO 19 through 220Ω resistor |
 | LED cathodes (-) | GND |
 
 ## How It Works
