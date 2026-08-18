@@ -19,15 +19,15 @@ Connect each LED anode (+) to its GPIO through a 220Ω resistor. Connect every L
 |---|---:|
 | LED 1 | GPIO 13 |
 | LED 2 | GPIO 14 |
-| LED 3 | GPIO 27 |
-| LED 4 | GPIO 26 |
+| LED 3 | GPIO 18 |
+| LED 4 | GPIO 19 |
 | LED 5 | GPIO 25 |
-| LED 6 | GPIO 33 |
+| LED 6 | GPIO 26 |
 
 ### Button
 | Component | Connection |
 |---|---|
-| Button side 1 | GPIO 32 |
+| Button side 1 | GPIO 27 |
 | Button side 2 | GND |
 
 The button uses the ESP32's internal pull-up resistor.
