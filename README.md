@@ -1,118 +1,81 @@
-# Embedded-learning
-Embedded Learning
+# Embedded Learning Portfolio
 
-Welcome to my Embedded Learning repository.
+Hands-on embedded systems, electronics, and firmware projects built while studying computer and electrical engineering.
 
-This repository documents my journey of learning embedded systems, electronics, and firmware development as part of my Computer and Electrical Engineering education at Loyola University Maryland.
+This repository documents my progression from basic GPIO and sensor work to increasingly integrated ESP32 systems involving displays, networking, timing, automation, RFID, cameras, and multi-component builds.
 
-My long-term goal is to become an engineer capable of designing and building complete hardware and software systems—from embedded devices and robotics to intelligent products and future technologies. This repository serves as both a learning journal and a portfolio of my progress.
+## What this repository shows
 
-⸻
+- Embedded C/C++ development
+- ESP32 hardware and firmware integration
+- Digital and analog I/O
+- PWM, ADC, timers, and interrupts
+- I2C, SPI, UART, Wi-Fi, and Bluetooth concepts
+- Sensors, actuators, servos, relays, RFID, RTCs, OLEDs, and cameras
+- Debugging, troubleshooting, and iterative prototyping
+- Engineering documentation through READMEs and reflections
 
-Objectives
+## Featured builds
 
-* Learn embedded C/C++ programming
-* Master the ESP32 platform
-* Understand digital and analog electronics
-* Build reliable firmware for real-world devices
-* Learn hardware debugging and troubleshooting
-* Develop strong engineering documentation habits
-* Create increasingly complex embedded systems projects
+A few representative projects:
 
-⸻
+- [Automatic Door](./Automatic%20Door)
+- [Alarm Clock](./Alarm%20Clock)
+- [ESP32 Capacitive-Touch Lamp](./ESP32%20Capacitive-Touch%20Lamp)
+- [ESP32-CAM Video Server](./ESP32-CAM%20Video%20Server)
+- [Environmental Statistics Logger](./Environmental%20Statistics%20Logger)
+- [Keypad Password Lock](./Keypad%20Password%20Lock)
+- [DHT11 Web Server](./DHT11%20web%20server)
+- [Automatic Night Light](./Automatic%20Night%20Light)
 
-Topics Covered
+## Project format
 
-* Embedded C/C++
-* ESP32 Development
-* GPIO (Digital Input/Output)
-* PWM
-* ADC & DAC
-* Timers and Interrupts
-* UART, I2C, and SPI Communication
-* Wi-Fi & Bluetooth
-* Sensors and Actuators
-* FreeRTOS Fundamentals
-* Power Management
-* Hardware Debugging
-* Git & GitHub Workflow
+Most completed project folders are intended to contain:
 
+1. Source code
+2. README with purpose, parts, wiring, and operation
+3. Reflection or lessons learned
+4. Photo or short demo media when useful
 
-Current Learning Roadmap
+The goal is not just to make a circuit work, but to document what was built, what failed, how it was debugged, and how the design could be improved.
 
-Phase 1
+## Hardware and tools
 
-* Digital Input/Output
-* LEDs
-* Buttons
-* Serial Communication
-* Basic Electronics
+- ESP32 development boards
+- Arduino IDE / Visual Studio Code
+- C/C++
+- Git and GitHub
+- OLED displays
+- DHT temperature/humidity sensors
+- Ultrasonic and PIR sensors
+- Servos and relays
+- DS1307 RTC
+- RC522 RFID
+- ESP32-CAM
+- Breadboards and common electronic components
 
-Phase 2
+## Learning roadmap
 
-* Sensors
-* Motors
-* PWM
-* Analog Signals
-* Interrupts
+### Foundations
+GPIO, LEDs, buttons, serial communication, analog inputs, PWM, and basic electronics.
 
-Phase 3
+### Sensors and control
+Environmental sensors, displays, motors, servos, timing, interrupts, and user input.
 
-* Wi-Fi
-* Bluetooth
-* Networking
-* IoT Applications
+### Connected systems
+Wi-Fi, web servers, IoT-style control, logging, RFID, and camera projects.
 
-Phase 4
+### Next level
+FreeRTOS, robotics, PCB design, power management, embedded AI, and larger system integration.
 
-* RTOS
-* Robotics
-* PCB Design
-* System Integration
+## Engineering focus
 
-⸻
+I use project-based learning to build stronger hardware, firmware, debugging, and system-design skills. Newer projects are intentionally more complex than earlier ones so this repository also shows progression over time.
 
-Project Documentation
+## Media note
 
-Each project includes:
+Some older project folders include large raw photos and videos. Going forward, media should be compressed and kept only when it adds useful proof or explanation of the build.
 
-* Project overview
-* Objectives
-* Required components
-* Wiring diagrams
-* Source code
-* Build instructions
-* Challenges encountered
-* Lessons learned
-* Ideas for future improvements
+---
 
-⸻
-
-Technologies
-
-* ESP32
-* C/C++
-* Visual Studio Code
-* Git
-* GitHub
-
-⸻
-
-Learning Philosophy
-
-I believe the best way to become a better engineer is to build consistently. Every project in this repository represents a step toward understanding how hardware and software work together to solve real-world problems.
-
-⸻
-
-Future Goals
-
-* Build autonomous robots
-* Design custom PCBs
-* Develop IoT systems
-* Explore embedded AI applications
-* Create reliable real-world engineering projects
-* Continue improving through hands-on experimentation
-
-⸻
-
-Thank you for visiting my repository. Feedback, suggestions, and ideas are always appreciated as I continue learning and growing as an engineer.
+Thanks for visiting. This repository is an active learning portfolio and will continue to evolve as I build more advanced systems.
