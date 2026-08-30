@@ -20,6 +20,13 @@ ESP32 alarm-clock build using a DS1307 real-time clock and display, with documen
 ### [Automatic Night Light](./Automatic%20Night%20Light)
 Light-responsive embedded system that reads ambient light and automatically controls an output based on the environment.
 
+## Planned builds
+
+These are intentionally kept separate from completed work and should not be counted as finished projects until they are physically built and tested.
+
+- [Smart Room Automation System](./Smart%20Room%20Automation%20System) — planned multi-sensor integration build
+- [ESP32 Sensor JSON API](./ESP32%20Sensor%20JSON%20API) — planned networking/API build
+
 ## What this repository demonstrates
 
 - Embedded C/C++ development
@@ -33,7 +40,7 @@ Light-responsive embedded system that reads ambient light and automatically cont
 
 ## Repository structure
 
-The repository contains both **learning exercises** and **portfolio builds**.
+The repository contains **learning exercises**, **completed portfolio builds**, and a small number of clearly labeled **planned builds**.
 
 Learning exercises are intentionally small and show specific concepts such as GPIO, PWM, buttons, analog input, displays, or individual sensors. They are kept to show progression rather than presented as major standalone engineering projects.
 
@@ -49,7 +56,7 @@ A completed portfolio project should include as many of the following as practic
 4. Reflection covering problems, debugging, and lessons learned
 5. Photo or short demo when it adds useful proof of the build
 
-Folders that contain only planning documentation should be treated as ideas or work in progress, not completed projects.
+Folders that contain only planning documentation are labeled as planned work, not completed projects.
 
 ## Hardware and tools
 
