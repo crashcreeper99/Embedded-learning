@@ -1,43 +1,55 @@
 # Embedded Learning Portfolio
 
-Hands-on embedded systems, electronics, and firmware projects built while studying computer and electrical engineering.
+Hands-on embedded systems, electronics, and firmware projects built while developing my skills in computer and electrical engineering.
 
-This repository documents my progression from basic GPIO and sensor work to increasingly integrated ESP32 systems involving displays, networking, timing, automation, RFID, cameras, and multi-component builds.
+This repository documents my progression from basic GPIO and sensor exercises to more integrated ESP32 systems involving displays, networking, timing, automation, RFID, sensors, and actuators.
 
-## What this repository shows
+## Featured completed builds
+
+These are the projects I would show first because they combine multiple skills and include working code plus documentation.
+
+### [RFID Attendance Check-In System](./RFID%20Attendance%20Check-In%20System)
+RFID-based check-in system using an RC522 reader, RTC timekeeping, OLED feedback, and stored user state. Includes source code, README, reflection, photo, and demo video.
+
+### [Automatic Door](./Automatic%20Door)
+Motion-triggered door prototype combining a PIR sensor and servo actuator. This project also documents the troubleshooting process behind servo power and GPIO issues.
+
+### [Alarm Clock](./Alarm%20Clock)
+ESP32 alarm-clock build using a DS1307 real-time clock and display, with documented code, hardware setup, reflection, and demo media.
+
+### [Automatic Night Light](./Automatic%20Night%20Light)
+Light-responsive embedded system that reads ambient light and automatically controls an output based on the environment.
+
+## What this repository demonstrates
 
 - Embedded C/C++ development
 - ESP32 hardware and firmware integration
 - Digital and analog I/O
 - PWM, ADC, timers, and interrupts
-- I2C, SPI, UART, Wi-Fi, and Bluetooth concepts
-- Sensors, actuators, servos, relays, RFID, RTCs, OLEDs, and cameras
-- Debugging, troubleshooting, and iterative prototyping
-- Engineering documentation through READMEs and reflections
+- I2C, SPI, and Wi-Fi
+- Sensors, servos, relays, RFID, RTCs, and OLED displays
+- Debugging and hardware troubleshooting
+- Project documentation and technical reflection
 
-## Featured builds
+## Repository structure
 
-A few representative projects:
+The repository contains both **learning exercises** and **portfolio builds**.
 
-- [Automatic Door](./Automatic%20Door)
-- [Alarm Clock](./Alarm%20Clock)
-- [ESP32 Capacitive-Touch Lamp](./ESP32%20Capacitive-Touch%20Lamp)
-- [ESP32-CAM Video Server](./ESP32-CAM%20Video%20Server)
-- [Environmental Statistics Logger](./Environmental%20Statistics%20Logger)
-- [Keypad Password Lock](./Keypad%20Password%20Lock)
-- [DHT11 Web Server](./DHT11%20web%20server)
-- [Automatic Night Light](./Automatic%20Night%20Light)
+Learning exercises are intentionally small and show specific concepts such as GPIO, PWM, buttons, analog input, displays, or individual sensors. They are kept to show progression rather than presented as major standalone engineering projects.
 
-## Project format
+Featured builds combine multiple components or concepts and are the projects I would discuss first in an internship, engineering, or technical interview.
 
-Most completed project folders are intended to contain:
+## Documentation standard
 
-1. Source code
-2. README with purpose, parts, wiring, and operation
-3. Reflection or lessons learned
-4. Photo or short demo media when useful
+A completed portfolio project should include as many of the following as practical:
 
-The goal is not just to make a circuit work, but to document what was built, what failed, how it was debugged, and how the design could be improved.
+1. Working source code
+2. README explaining the purpose and operation
+3. Parts and wiring information
+4. Reflection covering problems, debugging, and lessons learned
+5. Photo or short demo when it adds useful proof of the build
+
+Folders that contain only planning documentation should be treated as ideas or work in progress, not completed projects.
 
 ## Hardware and tools
 
@@ -51,31 +63,22 @@ The goal is not just to make a circuit work, but to document what was built, wha
 - Servos and relays
 - DS1307 RTC
 - RC522 RFID
-- ESP32-CAM
 - Breadboards and common electronic components
 
-## Learning roadmap
+## Learning progression
 
-### Foundations
-GPIO, LEDs, buttons, serial communication, analog inputs, PWM, and basic electronics.
+**Foundations:** GPIO, LEDs, buttons, serial communication, analog inputs, PWM, and basic electronics.
 
-### Sensors and control
-Environmental sensors, displays, motors, servos, timing, interrupts, and user input.
+**Sensors and control:** environmental sensors, displays, servos, timing, interrupts, and user input.
 
-### Connected systems
-Wi-Fi, web servers, IoT-style control, logging, RFID, and camera projects.
+**Connected systems:** Wi-Fi, web servers, IoT-style control, RFID, logging, and multi-component integration.
 
-### Next level
-FreeRTOS, robotics, PCB design, power management, embedded AI, and larger system integration.
+**Next level:** larger custom builds, robotics, PCB design, power management, FreeRTOS, and deeper hardware/software system design.
 
-## Engineering focus
+## Portfolio direction
 
-I use project-based learning to build stronger hardware, firmware, debugging, and system-design skills. Newer projects are intentionally more complex than earlier ones so this repository also shows progression over time.
-
-## Media note
-
-Some older project folders include large raw photos and videos. Going forward, media should be compressed and kept only when it adds useful proof or explanation of the build.
+The goal of this repository is no longer to maximize the number of small ESP32 projects. The focus is increasingly on stronger engineering ownership: understanding each subsystem, documenting the troubleshooting process, modifying designs, and combining learned skills into larger original builds.
 
 ---
 
-Thanks for visiting. This repository is an active learning portfolio and will continue to evolve as I build more advanced systems.
+This is an active learning portfolio. Older projects remain as evidence of progression, while the strongest completed systems are highlighted above.
