@@ -1,9 +1,11 @@
-# Smart Room Automation System
+# Smart Room Automation System — Planned Build
 
-## Overview
-This project combines multiple sensors and outputs into one room-control system. A PIR sensor detects occupancy, a DHT22 measures temperature, and the ESP32 controls a relay while showing system state on an OLED.
+> **Status:** Planned / not yet completed.
 
-## Hardware
+## Goal
+Build a multi-sensor room-control system that combines occupancy sensing, temperature monitoring, user input, display feedback, and relay control on one ESP32.
+
+## Planned Hardware
 - ESP32 DEVKIT V1
 - PIR motion sensor
 - DHT22 sensor
@@ -12,7 +14,7 @@ This project combines multiple sensors and outputs into one room-control system.
 - Push button
 - Jumper wires
 
-## Wiring
+## Planned Wiring
 - DHT22 DATA -> GPIO 4
 - PIR OUT -> GPIO 27
 - Relay IN -> GPIO 26
@@ -21,22 +23,19 @@ This project combines multiple sensors and outputs into one room-control system.
 - OLED SCL -> GPIO 22
 - Common GND between modules
 
-## Core Concepts
-- Sensor fusion
+## Skills This Build Should Practice
+- Multi-sensor integration
 - State-based control
 - Hysteresis
 - Automatic vs manual modes
-- Multi-module integration
-- Human-readable system feedback
+- OLED system feedback
+- Safe actuator control
 
-## Expected Result
-In automatic mode, the system uses occupancy and temperature conditions to decide whether the relay should be active. The OLED reports mode, temperature, occupancy, and output state.
+## Completion Criteria
+This project should not be treated as complete until the folder includes working source code, a tested hardware build, a reflection, and at least one photo or short demo.
 
 ## Safety
 Use the relay indicator or a safe low-voltage load for testing. Do not connect household mains voltage for this portfolio build.
 
-## Stretch Goal
-Add a true manual-output button, persistent settings, Wi-Fi monitoring, or a web dashboard.
-
-## Portfolio Value
-This is a stronger integration project because it combines sensing, decision logic, user input, display output, and actuation into one embedded system.
+## Stretch Goals
+Add persistent settings, Wi-Fi monitoring, or a web dashboard.
