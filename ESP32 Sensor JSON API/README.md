@@ -1,32 +1,33 @@
-# ESP32 Sensor JSON API
+# ESP32 Sensor JSON API — Planned Build
 
-## Overview
-This project turns the ESP32 into a small HTTP API server. A DHT22 sensor provides temperature and humidity data, which the ESP32 returns as structured JSON at an API endpoint.
+> **Status:** Planned / not yet completed.
 
-## Hardware
+## Goal
+Turn the ESP32 into a small HTTP API server that reads a DHT22 sensor and returns temperature, humidity, and uptime as structured JSON.
+
+## Planned Hardware
 - ESP32 DEVKIT V1
 - DHT22 sensor
 - Jumper wires
 - Wi-Fi network
 
-## Wiring
+## Planned Wiring
 - DHT22 VCC -> 3.3V
 - DHT22 DATA -> GPIO 4
 - DHT22 GND -> GND
 - Add a pull-up resistor on DATA if using a bare DHT22 sensor
 
-## Core Concepts
+## Skills This Build Should Practice
 - Wi-Fi networking
 - HTTP servers
 - REST-style endpoints
-- JSON data formatting
+- JSON formatting
 - Sensor-to-network integration
-- Basic backend/API architecture
+- Basic API design
 
-## Expected Result
-Opening `/api/sensor` on the ESP32's IP address returns JSON containing temperature, humidity, and uptime data.
+## Target Result
+Opening `/api/sensor` on the ESP32 should return valid JSON such as:
 
-Example:
 ```json
 {
   "temperature_f": 74.8,
@@ -35,8 +36,8 @@ Example:
 }
 ```
 
-## Stretch Goal
-Add multiple endpoints, error/status fields, additional sensors, or a separate frontend that consumes the API.
+## Completion Criteria
+This project should not be treated as complete until the folder includes working source code, tested endpoint output, a short reflection, and proof of the running build.
 
-## Portfolio Value
-Demonstrates embedded networking and API design rather than only serving a static web page.
+## Stretch Goals
+Add multiple endpoints, error/status fields, more sensors, or a separate frontend that consumes the API.
