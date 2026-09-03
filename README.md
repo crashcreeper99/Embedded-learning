@@ -1,91 +1,82 @@
 # Embedded Learning Portfolio
 
-Hands-on embedded systems, electronics, and firmware projects built while developing my skills in computer and electrical engineering.
+A completed learning archive of hands-on embedded systems, electronics, and firmware projects built while developing my skills in computer and electrical engineering.
 
-This repository documents my progression from basic GPIO and sensor exercises to more integrated ESP32 systems involving displays, networking, timing, automation, RFID, sensors, and actuators.
+This repository documents my progression from basic GPIO exercises to integrated ESP32 systems involving displays, networking, timing, automation, RFID, sensors, and actuators. I am keeping it as a record of the fundamentals I built before moving into larger, more original engineering projects.
 
-## Featured completed builds
-
-These are the projects I would show first because they combine multiple skills and include working code plus documentation.
+## Featured Builds
 
 ### [RFID Attendance Check-In System](./RFID%20Attendance%20Check-In%20System)
-RFID-based check-in system using an RC522 reader, RTC timekeeping, OLED feedback, and stored user state. Includes source code, README, reflection, photo, and demo video.
+RFID-based check-in system using an RC522 reader, RTC timekeeping, OLED feedback, and stored user state. This is one of the strongest examples of combining multiple embedded subsystems into one working build.
 
 ### [Automatic Door](./Automatic%20Door)
-Motion-triggered door prototype combining a PIR sensor and servo actuator. This project also documents the troubleshooting process behind servo power and GPIO issues.
+Motion-triggered door prototype combining a PIR sensor and servo actuator. The project also represents practical troubleshooting with servo power, wiring, and GPIO selection.
 
 ### [Alarm Clock](./Alarm%20Clock)
-ESP32 alarm-clock build using a DS1307 real-time clock and display, with documented code, hardware setup, reflection, and demo media.
+ESP32 alarm clock using a DS1307 real-time clock and display, combining timekeeping, output, and user interaction.
 
 ### [Automatic Night Light](./Automatic%20Night%20Light)
-Light-responsive embedded system that reads ambient light and automatically controls an output based on the environment.
+Light-responsive embedded system that reads ambient conditions and automatically controls an output.
 
-## Planned builds
-
-These are intentionally kept separate from completed work and should not be counted as finished projects until they are physically built and tested.
-
-- [Smart Room Automation System](./Smart%20Room%20Automation%20System) — planned multi-sensor integration build
-- [ESP32 Sensor JSON API](./ESP32%20Sensor%20JSON%20API) — planned networking/API build
-
-## What this repository demonstrates
+## Skills Demonstrated
 
 - Embedded C/C++ development
 - ESP32 hardware and firmware integration
 - Digital and analog I/O
 - PWM, ADC, timers, and interrupts
-- I2C, SPI, and Wi-Fi
-- Sensors, servos, relays, RFID, RTCs, and OLED displays
-- Debugging and hardware troubleshooting
-- Project documentation and technical reflection
+- I2C, SPI, and Wi-Fi communication
+- Sensor integration and data acquisition
+- OLED displays and user feedback
+- Servos, relays, RFID, and RTC modules
+- Breadboard prototyping and circuit wiring
+- Debugging hardware/software integration problems
+- Technical documentation and project reflection
+- Git and GitHub workflow
 
-## Repository structure
-
-The repository contains **learning exercises**, **completed portfolio builds**, and a small number of clearly labeled **planned builds**.
-
-Learning exercises are intentionally small and show specific concepts such as GPIO, PWM, buttons, analog input, displays, or individual sensors. They are kept to show progression rather than presented as major standalone engineering projects.
-
-Featured builds combine multiple components or concepts and are the projects I would discuss first in an internship, engineering, or technical interview.
-
-## Documentation standard
-
-A completed portfolio project should include as many of the following as practical:
-
-1. Working source code
-2. README explaining the purpose and operation
-3. Parts and wiring information
-4. Reflection covering problems, debugging, and lessons learned
-5. Photo or short demo when it adds useful proof of the build
-
-Folders that contain only planning documentation are labeled as planned work, not completed projects.
-
-## Hardware and tools
+## Hardware and Tools
 
 - ESP32 development boards
-- Arduino IDE / Visual Studio Code
+- Arduino IDE and Visual Studio Code
 - C/C++
 - Git and GitHub
-- OLED displays
+- SSD1306 OLED displays
 - DHT temperature/humidity sensors
 - Ultrasonic and PIR sensors
 - Servos and relays
 - DS1307 RTC
-- RC522 RFID
+- RC522 RFID reader
 - Breadboards and common electronic components
 
-## Learning progression
+## Learning Progression
 
-**Foundations:** GPIO, LEDs, buttons, serial communication, analog inputs, PWM, and basic electronics.
+**Foundations** — GPIO, LEDs, buttons, serial communication, analog inputs, PWM, and basic electronics.
 
-**Sensors and control:** environmental sensors, displays, servos, timing, interrupts, and user input.
+**Sensors and control** — environmental sensing, displays, servos, timing, interrupts, and user input.
 
-**Connected systems:** Wi-Fi, web servers, IoT-style control, RFID, logging, and multi-component integration.
+**Connected systems** — Wi-Fi, web servers, IoT-style control, RFID, logging, and multi-component integration.
 
-**Next level:** larger custom builds, robotics, PCB design, power management, FreeRTOS, and deeper hardware/software system design.
+**System integration** — combining multiple modules, debugging power and communication issues, and documenting complete working prototypes.
 
-## Portfolio direction
+## Documentation Standard
 
-The goal of this repository is no longer to maximize the number of small ESP32 projects. The focus is increasingly on stronger engineering ownership: understanding each subsystem, documenting the troubleshooting process, modifying designs, and combining learned skills into larger original builds.
+Completed projects may include:
+
+1. Working source code
+2. A README explaining the project
+3. Parts and wiring information
+4. A reflection covering problems, debugging, and lessons learned
+5. Photos or demo videos where useful
+
+The smaller exercises remain intentionally. They show the progression that led to the stronger integrated builds rather than being presented as major standalone engineering projects.
+
+## Repository Status
+
+**Learning phase complete.**
+
+This repository is now maintained as an archive of my ESP32 and embedded-systems fundamentals. I am no longer trying to maximize the number of small projects here. My next phase is focused on larger custom builds, robotics, PCB design, power systems, FreeRTOS, deeper firmware development, and projects with more original engineering decisions.
+
+The goal going forward is not simply to build more examples—it is to design systems I can explain, modify, troubleshoot, and take ownership of from idea to working prototype.
 
 ---
 
-This is an active learning portfolio. Older projects remain as evidence of progression, while the strongest completed systems are highlighted above.
+**Completed learning archive — 2026**
